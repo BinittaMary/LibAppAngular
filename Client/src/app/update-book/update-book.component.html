@@ -1,0 +1,66 @@
+<br>
+    <div class="row edit-container P-2 h-100 rounded"  >
+      <div class="col-lg-4"></div>
+      <!-- sign in form -->
+      <div class="col-lg-4  p-4 m-3 edit-row rounded">
+        <form class="row g-3 " #editBookForm="ngForm" style="font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;" (ngSubmit)="editBookForm.form.valid  && EditBook()" >   
+            <span id="editAlertMsg"> </span> 
+            <div class="col-md-12">
+                <label for="editTitle" class="form-label">Title</label><label class="form-label text-danger">&nbsp;* </label>
+                <span *ngIf="(title.invalid && (title.dirty || title.touched|| submitted))" class='balloonError'>
+                    <div *ngIf="title.errors?.required" >
+                        <p>Title is required</p>
+                      </div>
+                      <div *ngIf="title.errors?.minlength">
+                        <p>Title must be at least 4 characters long.</p>
+                      </div>
+                </span>
+                <input type="text" class="form-control" name="b_title" #title="ngModel"  id="editTitle" placeholder="Enter the Book Title"  minlength="4"  [(ngModel)]="BookItem.title" required>
+            </div>
+            <div class="col-md-12">
+                <label for="editAuthor" class="form-label">Author</label><label class="form-label text-danger">&nbsp;* </label>
+                <span *ngIf="(author.invalid && (author.dirty || author.touched|| submitted))" class='balloonError'>
+                    <div *ngIf="author.errors?.required" >
+                        <p>Author is required</p>
+                      </div>
+                      <div *ngIf="author.errors?.minlength">
+                        <p>Author must be at least 4 characters long.</p>
+                      </div>
+                </span>
+                <input type="text" class="form-control" name="b_author" #author="ngModel"  id="editAuthor" placeholder="Enter the Book Author"  minlength="4"  [(ngModel)]="BookItem.author" required>
+            </div>
+            <div class="col-md-12">
+                <label for="editGenre" class="form-label">Genre</label><label class="form-label text-danger">&nbsp;* </label>
+                <span *ngIf="(genre.invalid && (genre.dirty || genre.touched|| submitted))" class='balloonError'>
+                    <div *ngIf="genre.errors?.required" >
+                        <p>Genre is required</p>
+                      </div>
+                      <div *ngIf="genre.errors?.minlength">
+                        <p>Genre must be at least 4 characters long.</p>
+                      </div>
+                </span>
+                <input type="text" class="form-control" name="b_genre" id="editGenre" #genre="ngModel"  placeholder="Enter the Genre"  minlength="4"  [(ngModel)]="BookItem.genre" required>
+            </div>
+            <div class="col-md-12">
+                <label for="editDesc" class="form-label">Plot</label>
+                <span id="editDescSpan"></span>
+                <textarea class="form-control" id="editDesc" name="b_desc" rows="3" [(ngModel)]="BookItem.description"></textarea>
+            </div>
+            <div class="col-md-12">
+                <label for="editImage" class="form-label">Image</label><label class="form-label text-danger">&nbsp;* </label>
+                <input type="file" class="form-control" id="editBookImage" name="b_image" (change)="selectImage($event)"  #image="ngModel" [(ngModel)]="BookItem.image"/>
+            </div>
+            <div class=" col-md-12 ">
+                <label for="PreviewBookImage" class="form-label  ">Image Preview&nbsp;</label><br>
+                <span id="PreviewBookImage"></span>
+                <img class="form-control" src="assets/images/{{imgPrev}}" style="width: 20em; height: 10em;" >
+            </div> 
+            <div class="form-group col-md-11  p-3 text-center">
+                <label for="UserConfirmation" class="form-label EditPage-label " style="color: #311B92;">Do you want to Update this book?&nbsp;</label> <br> 
+                <button type="submit" class="btn btn-success " (mousedown)="submitted=true">Yes</button> &nbsp;
+                <a href="/books" id="cancel" name="cancel" class="btn btn-danger ">No</a>
+            </div>
+        </form> 
+      </div>
+      <div class="col-lg-2"></div>
+    </div>

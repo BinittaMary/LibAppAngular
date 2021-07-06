@@ -1,0 +1,41 @@
+<br>
+    <div class="row delete-container P-2 h-100 rounded"  >
+      <div class="col-lg-4"></div>
+      <!-- sign in form -->
+      <div class="col-lg-4  p-4 m-3 delete-row rounded">
+        <form class="row g-3 " style="font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;" (ngSubmit)="DeleteBook()" >   
+            <span id="deleteAlertMsg"></span> 
+            <div class="col-md-12">
+                <label for="deleteTitle" class="form-label">Title</label>
+                <span id="deleteTitleSpan"></span>
+                <input type="text" class="form-control" name="b_title" id="deleteTitle" placeholder="Enter the Book Title" [(ngModel)]="BookItem.title" readonly>
+            </div>
+            <div class="col-md-12">
+                <label for="deleteAuthor" class="form-label">Author</label>
+                <span id="deleteAuthorSpan"></span>
+                <input type="text" class="form-control" name="b_author"  id="deleteAuthor" placeholder="Enter the Book Author" [(ngModel)]="BookItem.author" readonly>
+            </div>
+            <div class="col-md-12">
+                <label for="deleteGenre" class="form-label">Genre</label>
+                <span id="deleteGenreSpan"></span>
+                <input type="text" class="form-control" name="b_genre" id="deleteGenre" placeholder="Enter the Genre" [(ngModel)]="BookItem.genre" readonly>
+            </div>
+            <div class="col-md-12">
+                <label for="deleteDesc" class="form-label">Plot</label>
+                <span id="deleteDescSpan"></span>
+                <textarea class="form-control" id="deleteDesc" name="b_desc" rows="3" [(ngModel)]="BookItem.description" readonly></textarea>
+            </div>
+            <div class=" col-md-12 ">
+                <label for="PreviewBookImage" class="form-label  ">Image Preview&nbsp;</label><br>
+                <span id="PreviewBookImage"></span>
+                <img class="form-control" src="assets/images/{{BookItem.image}}" style="width: 20em; height: 10em;" >
+            </div>  
+            <div class="form-group col-md-11  p-3 text-center">
+                <label for="UserConfirmation" class="form-label deletePage-label " style="color: #311B92;">Do you want to Delete this book?&nbsp;</label> <br> 
+                <button type="submit" class="btn btn-success ">Yes</button> &nbsp;
+                <a href="/books" id="cancel" name="cancel" class="btn btn-danger ">No</a>
+            </div>
+        </form> 
+      </div>
+      <div class="col-lg-2"></div>
+    </div>

@@ -1,0 +1,20 @@
+<nav class="navbar navbar-expand-lg navbar-dark navbar-color">
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+     
+      <ul class=" nav navbar-nav" style="font-family: Georgia, 'Times New Roman', Times, serif;">
+          <a class="nav-link "  routerLink="/"><b>Home</b></a>
+          <a class="nav-link "  routerLink="/books"><b>Books</b></a>
+          <a class="nav-link " *ngIf="_auth.loggedIn()"  routerLink="/addbook"><b>Add Book</b></a>
+          <a class="nav-link "  routerLink="/authors"><b>Authors</b></a>
+          <a class="nav-link " *ngIf="_auth.loggedIn()"  routerLink="/addauthor"><b>Add Author</b></a>
+      </ul>
+  
+      <ul class="nav navbar-right navbar-nav ms-auto" style="font-family: Georgia, 'Times New Roman', Times, serif;">
+        <a class="nav-link " *ngIf="_auth.loggedIn()"><b>Logged User : {{loggedUser}}</b></a>
+        <a class="nav-link " *ngIf="!_auth.loggedIn()" routerLink="/login"><b>Login</b></a>
+        <a class="nav-link " *ngIf="!_auth.loggedIn()" routerLink="/signup"><b>Sign Up</b></a>
+        <a class="nav-link " *ngIf="_auth.loggedIn()"  (click)="logoutUser()"><b>Logout</b></a>
+      </ul>
+    </div>
+  </nav> 

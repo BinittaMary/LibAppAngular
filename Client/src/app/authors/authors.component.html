@@ -1,0 +1,33 @@
+<br>
+<span ><div style ='color: #311B92;  padding:5px;'><h3 style=" text-align: center; font-family : cursive;">{{alertMsg}}</h3></div></span>
+<div *ngFor ="let author of AuthorData">
+    <div class="card mb-3 card-block card-outline-primary " style="max-width: 100%; border: #311B92 solid 1px;">
+      <div class="row g-0 " >
+        <div class="col-md-4">
+          <img
+            src="assets/images/{{author.image}}"
+            alt="..."
+            class="img-fluid  p-2"
+            style="width:300px;height:300px"
+          />
+        </div>
+        <div class="col-md-8" style="font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;">
+          <div class="card-body ">
+            <h5 class="card-title  " style="color: #311B92; font-family: fantasy;">{{author.authorname}}</h5>
+            <p class="card-text text-muted ">{{author.works}} </p>
+            <p class="card-text text-muted ">{{author.nationality}}  </p>
+            <p class="card-text text-muted">
+                <small >{{author.career}}</small>
+              </p>
+            <div class="card-body text-end">
+              <button class="btn btn-success float-right text-center" *ngIf="_auth.loggedIn()" (click)="editAuthor(author)" >&nbsp; &nbsp;Edit &nbsp;</button>&nbsp;
+              <button class="btn btn-danger float-right text-center" *ngIf="_auth.loggedIn()" (click)="deleteAuthor(author)" >&nbsp; Delete &nbsp;</button>&nbsp;
+              <button class="btn btn-warning float-right text-center"  (click)="getAuthor(author)" >Read More</button>
+            </div>
+          </div>
+        </div>
+      </div>    
+    </div>
+    <br>
+  </div>
+

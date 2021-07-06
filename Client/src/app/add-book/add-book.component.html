@@ -1,0 +1,65 @@
+<br>
+    <div class="row add-container P-2 h-100 rounded"  >
+      <div class="col-lg-4"></div>
+      <!-- sign in form -->
+      <div class="col-lg-4  p-4 m-3 add-row rounded">
+        <form class="row g-3" novalidate #addBookForm="ngForm" (ngSubmit)="addBookForm.form.valid && AddBook()" >   
+            <span id="addAlertMsg"></span> 
+            <div class="col-md-12">
+                <label for="addTitle" class="form-label">Title</label><label class="form-label text-danger">&nbsp;* </label>
+                <span *ngIf="(title.invalid && (title.dirty || title.touched|| submitted))" class='balloonError'>
+                    <div *ngIf="title.errors?.required" >
+                        <p>Title is required</p>
+                      </div>
+                      <div *ngIf="title.errors?.minlength">
+                        <p>Title must be at least 4 characters long.</p>
+                      </div>
+                </span>
+               <input type="text" class="form-control" name="b_title" id="addTitle" #title="ngModel"  placeholder="Enter the Book Title" minlength="4" [(ngModel)]="BookItem.title" required> 
+            </div>
+
+            <div class="col-md-12">
+                <label for="addAuthor" class="form-label">Author</label><label class="form-label text-danger">&nbsp;* </label>
+                <span *ngIf="(author.invalid && (author.dirty || author.touched|| submitted))" class='balloonError'>
+                    <div *ngIf="author.errors?.required" >
+                        <p>Author is required</p>
+                      </div>
+                      <div *ngIf="author.errors?.minlength">
+                        <p>Author must be at least 4 characters long.</p>
+                      </div>
+                </span>
+                <input type="text" class="form-control" name="b_author"  id="addAuthor" placeholder="Enter the Book Author" minlength="4" #author="ngModel" [(ngModel)]="BookItem.author" required>
+            </div>
+            <div class="col-md-12">
+                <label for="addGenre" class="form-label">Genre</label><label class="form-label text-danger">&nbsp;* </label>
+                <span *ngIf="(genre.invalid && (genre.dirty || genre.touched|| submitted))" class='balloonError'>
+                    <div *ngIf="genre.errors?.required" >
+                        <p>Genre is required</p>
+                      </div>
+                      <div *ngIf="genre.errors?.minlength">
+                        <p>Genre must be at least 4 characters long.</p>
+                      </div>
+                </span>
+                <input type="text" class="form-control" name="b_genre" id="addGenre" placeholder="Enter the Genre" minlength="4" #genre="ngModel"  [(ngModel)]="BookItem.genre" required>
+            </div>
+            <div class="col-md-12">
+                <label for="addDesc" class="form-label">Plot</label>
+                <span id="addDescSpan"></span>
+                <textarea class="form-control" id="addDesc" name="b_desc" rows="3"  [(ngModel)]="BookItem.description"></textarea>
+            </div>
+            <div class="col-md-12">
+                <label for="addImage" class="form-label">Image</label><label class="form-label text-danger">&nbsp;* </label>
+                <span *ngIf="(image.invalid && (image.dirty || image.touched|| submitted))" class='balloonError'>
+                    <div *ngIf="image.errors?.required" >
+                        <p>Image is required</p>
+                      </div>
+                </span>
+                <input type="file" class="form-control" id="AddBookImage" name="b_image" (change)="selectImage($event)" [(ngModel)]="BookItem.image" #image="ngModel"  required/>
+            </div>
+            <div class="form-group col-md-11 d-grid p-3 text-center">
+                <button type="submit" class="btn btn-primary " (mousedown)="submitted=true" >Add Book</button>
+            </div>
+        </form> 
+      </div>
+      <div class="col-lg-2"></div>
+    </div>
