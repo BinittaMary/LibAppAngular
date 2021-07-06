@@ -69,7 +69,7 @@ app.get('/:id',  (req, res) => {
   })
 
   app.post('/upload',function(req,res){
-    const destn = path.join(__dirname, '../../', 'LibraryAppModified', 'Client', 'src', 'assets', 'images');
+    const destn = path.join(__dirname, '../',  'Client', 'src', 'assets', 'images');
     console.log(destn);
     var storage =   multer.diskStorage({
         destination: function (req, file, callback) {
@@ -134,7 +134,7 @@ app.post('/author/insert',verifyToken,function(req,res){
    res.header('Access-Control-Allow-Methods: GET, POST, PATCH,PUT,DELETE,OPTIONS');  
    console.log(` inside insert ${req.body}`)
     
-   const destn = path.join(__dirname, '../../', 'LibraryAppModified', 'Client', 'src', 'assets', 'images');
+   const destn = path.join(__dirname, '../',  'Client', 'src', 'assets', 'images');
    console.log(destn);
    var storage =   multer.diskStorage({
        destination: function (req, file, callback) {
@@ -209,7 +209,7 @@ app.put('/author/updateWithFile',verifyToken,(req,res)=>{
    res.header("Access-Control-Allow-Origin","*")
    res.header('Access-Control-Allow-Methods: GET, POST, PATCH,PUT,DELETE,OPTIONS');  
    console.log(` inside updateWithFile ${req.body}`)
-   const destn = path.join(__dirname, '../../', 'LibraryAppModified', 'Client', 'src', 'assets', 'images');
+   const destn = path.join(__dirname, '../',  'Client', 'src', 'assets', 'images');
    console.log(destn);
    var storage =   multer.diskStorage({
        destination: function (req, file, callback) {
@@ -250,8 +250,8 @@ app.put('/author/updateWithFile',verifyToken,(req,res)=>{
   res.header("Access-Control-Allow-Origin","*")
   res.header('Access-Control-Allow-Methods: GET, POST, PATCH,PUT,DELETE,OPTIONS');  
   console.log(` inside insert ${req.body}`)
-   
-  const destn = path.join(__dirname, '../../', 'LibraryAppModified', 'Client', 'src', 'assets', 'images');
+    
+  const destn = path.join(__dirname, '../',  'Client', 'src', 'assets', 'images');
   console.log(destn);
   var storage =   multer.diskStorage({
       destination: function (req, file, callback) {
@@ -323,7 +323,7 @@ app.put('/updateWithFile',verifyToken,(req,res)=>{
   res.header("Access-Control-Allow-Origin","*")
   res.header('Access-Control-Allow-Methods: GET, POST, PATCH,PUT,DELETE,OPTIONS');  
   console.log(` inside update ${req.body}`)
-  const destn = path.join(__dirname, '../../', 'LibraryAppModified', 'Client', 'src', 'assets', 'images');
+  const destn = path.join(__dirname, '../',  'Client', 'src', 'assets', 'images');
   console.log(destn);
   var storage =   multer.diskStorage({
       destination: function (req, file, callback) {

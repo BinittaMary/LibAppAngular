@@ -44,7 +44,7 @@ export class EditAuthorComponent implements OnInit {
     else{
     this.authorsObj.editAuthor(this.AuthorItem);
     }
-     localStorage.setItem('authorAlertMsg', `The book ${this.AuthorItem.authorname} is updated`); 
+     localStorage.setItem('authorAlertMsg', `The author ${this.AuthorItem.authorname} is updated`); 
      this.router.navigate(['/authors']);   
   }
 

@@ -18,7 +18,7 @@
                         <p>Invalid Email ID</p>
                       </div>
                 </span>
-               <input type="password" class="form-control" name="b_email" id="loginEmail" #email="ngModel"  placeholder="Enter the Email ID" pattern="^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}" [(ngModel)]="User.emailaddress" required> 
+               <input type="text" class="form-control" name="b_email" id="loginEmail" #email="ngModel"  placeholder="Enter the Email ID" pattern="^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}" [(ngModel)]="User.emailaddress" required> 
             </div>
 
             <div class="col-md-12">
@@ -34,7 +34,7 @@
                         <p>Invalid password</p>
                       </div>
                 </span>
-                <input type="text" class="form-control" name="b_pwd"  id="loginPassword" placeholder="Enter the Password" minlength="8" #pwd="ngModel" [(ngModel)]="User.password" required>
+                <input type="password" class="form-control" name="b_pwd"  id="loginPassword" placeholder="Enter the Password" minlength="8" #pwd="ngModel" [(ngModel)]="User.password" required>
             </div>
             <div class="form-group col-md-11 d-grid p-3 text-center">
                 <button type="submit" class="btn btn-primary " (mousedown)="submitted=true" >login</button>
