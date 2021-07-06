@@ -17,11 +17,12 @@ alertMsg   : any;
   constructor(public _auth : AuthService, public router : Router, public authorObj : AuthorsService) { }
 
   ngOnInit(): void {
-    this.authorObj.getAuthors()
-    .subscribe((authors)=>{
-      this.AuthorData =authors;
-      console.log(this.AuthorData);
-      });
+    setTimeout(() => {     this.authorObj.getAuthors()
+      .subscribe((authors)=>{
+        this.AuthorData =authors;
+        console.log(this.AuthorData);
+        }); }, 100);
+
       this.alertMsg = localStorage.getItem('authorAlertMsg');
       console.log (`Alert msg : ${this.alertMsg}` );
       localStorage.removeItem('authorAlertMsg');

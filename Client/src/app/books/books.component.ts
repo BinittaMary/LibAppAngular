@@ -20,13 +20,15 @@ export class BooksComponent implements OnInit {
   constructor(public booksObj : BookService, private router:Router, public dialog: MatDialog, public _auth : AuthService) { }
 
   ngOnInit(): void {
-    this.alertMsg = localStorage.getItem('bookAlertMsg');
+    this.alertMsg = localStorage.getItem('bookAlertMsg');    
+    setTimeout(() => {
     this.booksObj.getBooks()
     .subscribe((books)=>{
       this.booksdata =books;
       console.log(this.booksdata);
       localStorage.removeItem('bookAlertMsg'); 
       });
+       }, 50);
        console.log (`Alert msg : ${this.alertMsg}` );
     }
 

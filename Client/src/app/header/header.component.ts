@@ -20,4 +20,8 @@ logoutUser()
 localStorage.removeItem('token')
 this._router.navigate(['/'])
 }
+
+getloguser(){
+  this.loggedUser = this._auth.getCurrentUser(); 
+}
 }

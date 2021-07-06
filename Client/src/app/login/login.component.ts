@@ -29,7 +29,7 @@ submitted =false;
       this._auth.loginUser(this.User)
       .subscribe(
         res => {
-          localStorage.setItem('token', res.token)
+          localStorage.setItem('token', res.token)          
           localStorage.setItem('currentUser', res.users.firstname)
           console.log(res);
           this.LoginError.errorMsg= '';

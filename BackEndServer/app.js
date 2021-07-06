@@ -306,6 +306,7 @@ app.put('/update',verifyToken,(req,res)=>{
   BookGenre  = req.body.genre,
   BookDesc   = req.body.description,
   BookImage  = req.body.image
+  console.log(`inside the book edit ${BookTitle}`);
   Bookdata.findByIdAndUpdate({"_id":id},
                               {$set:{"title":BookTitle,
                               "author":BookAuthor,

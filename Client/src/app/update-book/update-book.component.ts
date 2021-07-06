@@ -47,8 +47,10 @@ export class UpdateBookComponent implements OnInit {
     EditBook(){
       this.BookItem.image = this.BookItem.image.replace('C:\\fakepath\\','');
       if (this.imageModified) {
+        console.log('editbook with image');
          this.booksObj.editBookWithImage(this.images, this.BookItem);}
       else {
+        console.log('editbook ');
         this.booksObj.editBook( this.BookItem);  
       }
        localStorage.setItem('bookAlertMsg', `The book ${this.BookItem.title} is updated`); 
