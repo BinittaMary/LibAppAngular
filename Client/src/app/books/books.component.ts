@@ -3,8 +3,6 @@ import { BookService } from '../book.service';
 import { ActivatedRoute,Router } from '@angular/router';
 import { MatDialog } from '@angular/material/dialog';
 import { AuthService } from '../auth.service';
-import { getMaxNumberOfWorkers } from 'node_modules - Copy/@angular/compiler-cli/ngcc/src/ngcc_options';
-
 @Component({
   selector: 'app-books',
   templateUrl: './books.component.html',
